@@ -20,6 +20,8 @@ import socket              # UDP通信
 from time import sleep     # sleep用
 
 # UDPソケットの生成
+# IPアドレス(192.168.10.1)
+# ポート番号(8889)
 socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 tello_address = ('192.168.10.1', 8889)
 print(socket)

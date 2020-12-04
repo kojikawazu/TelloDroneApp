@@ -4,18 +4,20 @@
 '''
 【ドローン制御】
 
-ドローンを自動離陸して、左→前→右→後へ回転する
-簡単なドローン制御を行います。
-受信スレッドを立てて、受信状態を作ります。
+ミッションパッドを使用したドローン制御を行う。
 
 1. UDP送信ソケットの生成
 2. 受信用スレッドの開始
 3. コマンドモードにする
-4. 自動離陸する
-5. 左→前→右→後へ回転する
-6. 自動着陸する
-7. ソケットの解放
-8. 受信用スレッドの終了
+4. ミッションパッド検出をオンにする
+5. 自動離陸する
+6. m1パッドに(0,0,100)の座標に60cm/sで移動する
+7. m2パッドに(0,0,100)の座標に60cm/sで移動する
+8. m1パッドに(0,0,100)の座標に60cm/sで移動する
+9. ミッションパッド検出をオフにする
+10. 自動着陸する
+11. ソケットを閉じる
+12. 受信用スレッドを終了させる
 
 受信用スレッドの処理
 1. UDP受信ソケットの生成
@@ -37,7 +39,7 @@ def recvSocket():
 
     # UDP受信用ソケット
     # IPアドレス(0.0.0.0)
-    # ポート番号(8890)  
+    # ポート番号(8890) 
     recv_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     localaddr = ('0.0.0.0', 8890)
     # バインド
@@ -77,35 +79,39 @@ cmd = 'command'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
 
+# ミッションパッド検出をオンにする
+cmd = 'mon'
+send_socket.sendto(cmd.encode('utf-8'), tello_address)
+print(cmd)
+
 # 自動離陸
 cmd = 'takeoff'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
-sleep(1)
+sleep(2)
 
-# 左へ回転
-cmd = 'flip l'
+# m1パッドに(0,0,100)の座標に60cm/sで移動する
+cmd = 'go 0 0 100 60 m1'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
 sleep(5)
 
-# 右へ回転
-cmd = 'flip r'
+# m2パッドに(0,0,100)の座標に60cm/sで移動する
+cmd = 'go 0 0 100 60 m2'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
 sleep(5)
 
-# 前へ回転
-cmd = 'flip f'
+# m1パッドに(0,0,100)の座標に60cm/sで移動する
+cmd = 'go 0 0 100 60 m1'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
 sleep(5)
 
-# 後へ回転
-cmd = 'flip b'
+# ミッションパッド検出をオフにする
+cmd = 'moff'
 send_socket.sendto(cmd.encode('utf-8'), tello_address)
 print(cmd)
-sleep(5)
 
 # 自動着陸
 cmd = 'land'
