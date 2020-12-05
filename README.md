@@ -10,23 +10,34 @@
 
 〇practice(教育用)
 
-tello_first.py   　　# ドローンを離陸させて上下左右に移動するアプリ
-tello_recv.py    　　# ドローンを離陸させて、受信スレッドを動作するアプリ
-tello_camera.py  　　# ドローンのカメラをキャプチャーして、画面に出力するアプリ
-tello_pad.py     　　# ドローンのビジョンポジショニングシステムを利用してMissionPadを検出し
-　　　　　　　　　　　 # ドローンを制御するアプリ。
-cv2_camera_test.py　 # パソコンのカメラをキャプチャーして、画面に出力するアプリ
+# ドローンを離陸させて上下左右に移動するアプリ
+tello_first.py
+
+# ドローンを離陸させて、受信スレッドを動作するアプリ
+tello_recv.py  　
+
+# ドローンのカメラをキャプチャーして、画面に出力するアプリ
+tello_camera.py
+
+# ドローンのビジョンポジショニングシステムを利用してMissionPadを検出し
+# ドローンを制御するアプリ。
+tello_pad.py
+
+# パソコンのカメラをキャプチャーして、画面に出力するアプリ
+cv2_camera_test.py
 
 
 〇lib_exe
 
-libtello.py          # Telloの制御を纏めた自作ライブラリ
-tello_key.py         # ドローンのカメラキャプチャー機能＋キーボード制御機能を搭載したアプリ
-tello_camera.py      # ドローンのカメラをキャプチャーして、画面に出力するアプリ
-tello_mission.py     # ドローンのビジョンポジショニングシステムを利用してMissionPadを検出し
-　　　　　　　　　　　 # ドローンを制御するアプリ。
+# Telloの制御を纏めた自作ライブラリ
+libtello.py
 
+# ドローンのカメラキャプチャー機能＋キーボード制御機能を搭載したアプリ
+tello_key.py
 
+# ドローンのカメラをキャプチャーして、画面に出力するアプリ
+tello_camera.py
 
-
-
+# ドローンのビジョンポジショニングシステムを利用してMissionPadを検出し
+# ドローンを制御するアプリ。
+tello_mission.py
