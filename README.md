@@ -8,6 +8,14 @@
 
 フォルダ: practice, lib_exe
 
+〇実行方法
+  Anaconda Promptを開く。
+  cdコマンドで該当フォルダの場所へ移動し、
+  pythonコマンドで実行。
+  
+> cd practice
+> python tello_first.py
+
 〇practice(教育用)
 
 ドローンを離陸させて上下左右に移動するアプリ
