@@ -58,7 +58,7 @@ sleep(2)
 # ドローン画面キャプチャーの生成
 # IPアドレス(0.0.0.0)
 # ポート番号(11111)
-tello_movie_addr = 'udp://9.0.0.0:11111'
+tello_movie_addr = 'udp://0.0.0.0:11111'
 cap = cv2.VideoCapture(tello_movie_addr)
 if not cap.isOpened():
     cap.open(tello_movie_addr)
